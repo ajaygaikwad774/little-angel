@@ -1,0 +1,96 @@
+section.terms-of-use{
+    background-color:transparent;
+    background-image: url(../img/Terms-of-use/Asset100.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+     padding: 50px 0 75px 0; 
+    z-index: 1;
+	text-align:center !important;
+	
+}
+
+.terms-of-use .terms-of-use-heading h1
+{
+	    color: #FCED1E;
+    font-family: 'Appleberry';
+    font-size: 50px;
+    font-weight: normal !important;
+    text-transform: none !important;
+    margin-bottom: 10px;
+    text-shadow: none !important;
+    line-height: 55px;
+    -webkit-animation: none !important;
+    animation: none !important;
+   
+}
+.terms-of-use-con{
+	background-color:transparent;
+    background-image: url(../img/Terms-of-use/white-bg-texture.webp);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center top;
+    position: relative;
+     padding: 50px 0 50px 0; 
+     margin-top:-50px;
+    z-index: 0;
+	text-align:left !important;
+}
+.terms-of-use-para 
+{
+	padding-top:50px;
+    font-size: 16px;
+    line-height: 26px;
+}
+.terms-of-use-para p
+{
+	font-family:'open sans';
+	font-size:16px;
+    line-height: 26px;
+    color: #000;
+    padding-bottom: 10px;
+}
+.para-point
+{
+	font-weight:bold;
+	font-family:'open sans';
+	font-size:16px;
+    line-height: 26px;
+    color: #000;
+}
+.co-office
+{color: #ED1651;
+    font-weight: bold;
+    font-size: 21px;
+}
+@media only screen and (max-width: 991px) and (min-width: 360px) {
+section.terms-of-use{
+    background-color:transparent;
+    background-image: url(../img/Terms-of-use/Asset100.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+     padding: 50px 0 30px 0; 
+    margin-top:80px;
+    z-index: 1;
+	text-align:center !important;
+	
+}
+.terms-of-use .terms-of-use-heading h1
+{
+	    color: #FCED1E;
+    font-family: 'Appleberry';
+    font-size: 30px;
+    font-weight: normal !important;
+    text-transform: none !important;
+    margin-bottom: 10px;
+    text-shadow: none !important;
+    line-height: 55px;
+    -webkit-animation: none !important;
+    animation: none !important;
+   
+}
+
+}
