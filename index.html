@@ -480,6 +480,2809 @@ document.addEventListener('DOMContentLoaded', function() {
     width: 100%;
 }
 </style>
+
+<style>
+.features2-section {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.content-panel {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.slide-title {
+    font-size: 42px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.highlight {
+    color: #0099ff;
+}
+
+.content-box {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.content-box p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #4a5568;
+    margin: 0;
+}
+
+.action-link {
+    color: #0099ff;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+/* Navigation */
+.slide-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-square {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #ddd;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.nav-square.active {
+    background: #0099ff;
+    border-color: #0099ff;
+}
+
+/* Content Structure */
+.modern-slides {
+    position: relative;
+}
+
+.content-slide {
+    display: none;
+}
+
+.content-slide.active {
+    display: block;
+}
+
+@media (max-width: 991px) {
+    .content-panel {
+        padding: 30px;
+    }
+    
+    .slide-title {
+        font-size: 36px;
+    }
+}
+
+.slide-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.slide-title {
+    font-size: 38px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #0099ff;
+}
+
+.content-box {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 15px 0;
+}
+
+.content-box p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4a5568;
+    margin: 0;
+}
+
+.action-link {
+    color: #0099ff;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.action-link:hover {
+    color: #007acc;
+}
+
+.slide-nav {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.nav-dot {
+    width: 25px;
+    height: 3px;
+    border: none;
+    background: rgba(0, 153, 255, 0.2);
+    border-radius: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.nav-dot.active {
+    background: #0099ff;
+    width: 35px;
+}
+
+@media (max-width: 991px) {
+    .content-panel {
+        height: auto;
+        min-height: 400px;
+    }
+}
+</style>
+
+<script>
+// Keep existing carousel functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.content-slide');
+    const dots = document.querySelectorAll('.nav-dot');
+    
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showSlide(index));
+    });
+});
+</script>
+
+<style>
+.features3-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Video Panel Styles */
+.video-panel {
+    height: 100%;
+    padding: 20px;
+}
+
+.video-wrapper {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.1),
+        0 5px 15px rgba(0,0,0,0.05);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.control-dots {
+    display: flex;
+    gap: 8px;
+    padding: 15px 20px;
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+}
+
+.control-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.control-dots span:nth-child(1) { background: #ff6b6b; }
+.control-dots span:nth-child(2) { background: #ffd93d; }
+.control-dots span:nth-child(3) { background: #6bff7c; }
+
+.control-dots span:hover {
+    transform: scale(1.2);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 0 0 20px 20px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Content Panel Styles */
+.content-panel {
+    height: 100%;
+    padding: 20px;
+}
+
+.content-slide {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.08),
+        0 5px 15px rgba(0,0,0,0.03);
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+.slide-inner {
+    padding: 40px;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #f8f9fa;
+}
+
+.slide-inner::-webkit-scrollbar {
+    width: 6px;
+}
+
+.slide-inner::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.slide-inner::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.slide-inner h3 {
+    color: #2d3436;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.slide-inner h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    border-radius: 2px;
+}
+
+.slide-inner h3 span {
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.feature-list {
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    box-shadow: 
+        0 3px 10px rgba(0,0,0,0.03),
+        0 1px 5px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 5px 15px rgba(0,0,0,0.08),
+        0 2px 8px rgba(0,0,0,0.04);
+}
+
+.feature-item i {
+    color: #007bff;
+    background: linear-gradient(145deg, #ffffff, #f0f7ff);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    box-shadow: 
+        0 3px 8px rgba(0,123,255,0.15),
+        0 1px 4px rgba(0,123,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover i {
+    transform: scale(1.1) rotate(5deg);
+    background: #007bff;
+    color: #fff;
+}
+
+.feature-item p {
+    color: #4a5568;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.action-button {
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.custom-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 5px 15px rgba(0,123,255,0.2),
+        0 3px 8px rgba(0,123,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: all 0.5s ease;
+}
+
+.custom-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0,123,255,0.3),
+        0 5px 12px rgba(0,123,255,0.2);
+    color: #fff;
+}
+
+.custom-btn:hover:before {
+    left: 100%;
+}
+
+/* Owl Carousel Navigation Enhancement */
+.testi-slider .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 -15px;
+    pointer-events: none;
+}
+
+.testi-slider .owl-prev,
+.testi-slider .owl-next {
+    width: 40px;
+    height: 40px;
+    background: #fff !important;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    position: relative;
+    left: -20px;
+}
+
+.testi-slider .owl-next {
+    left: auto;
+    right: -20px;
+}
+
+.testi-slider .owl-prev:hover,
+.testi-slider .owl-next:hover {
+    background: #007bff !important;
+    color: #fff !important;
+    transform: scale(1.1);
+}
+
+/* Dots Enhancement */
+.testi-slider .owl-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.testi-slider .owl-dot {
+    width: 10px;
+    height: 10px;
+    background: #e1e8ff !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.testi-slider .owl-dot.active {
+    background: #007bff !important;
+    transform: scale(1.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .slide-inner {
+        padding: 30px;
+    }
+
+    .slide-inner h3 {
+        font-size: 2rem;
+    }
+
+    .feature-item {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .content-panel {
+        padding: 15px;
+    }
+
+    .slide-inner {
+        padding: 25px;
+    }
+
+    .slide-inner h3 {
+        font-size: 1.8rem;
+    }
+
+    .feature-item p {
+        font-size: 1rem;
+    }
+}
+</style>
+
+<style>
+.features4-section pb50 {
+    padding: 50px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Video Panel Styles */
+.video-panel {
+    height: 100%;
+    padding: 20px;
+}
+
+.video-wrapper {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.1),
+        0 5px 15px rgba(0,0,0,0.05);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.control-dots {
+    display: flex;
+    gap: 8px;
+    padding: 15px 20px;
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+}
+
+.control-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.control-dots span:nth-child(1) { background: #ff6b6b; }
+.control-dots span:nth-child(2) { background: #ffd93d; }
+.control-dots span:nth-child(3) { background: #6bff7c; }
+
+.control-dots span:hover {
+    transform: scale(1.2);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 0 0 20px 20px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Content Panel Styles */
+.content-panel {
+    height: 100%;
+    padding: 20px;
+}
+
+.content-slide {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.08),
+        0 5px 15px rgba(0,0,0,0.03);
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+.slide-inner {
+    padding: 40px;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #f8f9fa;
+}
+
+.slide-inner::-webkit-scrollbar {
+    width: 6px;
+}
+
+.slide-inner::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.slide-inner::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.slide-inner h3 {
+    color: #2d3436;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.slide-inner h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    border-radius: 2px;
+}
+
+.slide-inner h3 span {
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.feature-list {
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    box-shadow: 
+        0 3px 10px rgba(0,0,0,0.03),
+        0 1px 5px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 5px 15px rgba(0,0,0,0.08),
+        0 2px 8px rgba(0,0,0,0.04);
+}
+
+.feature-item i {
+    color: #007bff;
+    background: linear-gradient(145deg, #ffffff, #f0f7ff);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    box-shadow: 
+        0 3px 8px rgba(0,123,255,0.15),
+        0 1px 4px rgba(0,123,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover i {
+    transform: scale(1.1) rotate(5deg);
+    background: #007bff;
+    color: #fff;
+}
+
+.feature-item p {
+    color: #4a5568;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.action-button {
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.custom-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 5px 15px rgba(0,123,255,0.2),
+        0 3px 8px rgba(0,123,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: all 0.5s ease;
+}
+
+.custom-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0,123,255,0.3),
+        0 5px 12px rgba(0,123,255,0.2);
+    color: #fff;
+}
+
+.custom-btn:hover:before {
+    left: 100%;
+}
+
+/* Owl Carousel Navigation Enhancement */
+.testi-slider .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 -15px;
+    pointer-events: none;
+}
+
+.testi-slider .owl-prev,
+.testi-slider .owl-next {
+    width: 40px;
+    height: 40px;
+    background: #fff !important;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    position: relative;
+    left: -20px;
+}
+
+.testi-slider .owl-next {
+    left: auto;
+    right: -20px;
+}
+
+.testi-slider .owl-prev:hover,
+.testi-slider .owl-next:hover {
+    background: #007bff !important;
+    color: #fff !important;
+    transform: scale(1.1);
+}
+
+/* Dots Enhancement */
+.testi-slider .owl-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.testi-slider .owl-dot {
+    width: 10px;
+    height: 10px;
+    background: #e1e8ff !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.testi-slider .owl-dot.active {
+    background: #007bff !important;
+    transform: scale(1.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .slide-inner {
+        padding: 30px;
+    }
+
+    .slide-inner h3 {
+        font-size: 2rem;
+    }
+
+    .feature-item {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .content-panel {
+        padding: 15px;
+    }
+
+    .slide-inner {
+        padding: 25px;
+    }
+
+    .slide-inner h3 {
+        font-size: 1.8rem;
+    }
+
+    .feature-item p {
+        font-size: 1rem;
+    }
+}
+</style>
+
+<style>
+.features6-section pt-100 {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Video Panel Styles */
+.video-panel {
+    height: 100%;
+    padding: 20px;
+}
+
+.video-wrapper {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.1),
+        0 5px 15px rgba(0,0,0,0.05);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.control-dots {
+    display: flex;
+    gap: 8px;
+    padding: 15px 20px;
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+}
+
+.control-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.control-dots span:nth-child(1) { background: #ff6b6b; }
+.control-dots span:nth-child(2) { background: #ffd93d; }
+.control-dots span:nth-child(3) { background: #6bff7c; }
+
+.control-dots span:hover {
+    transform: scale(1.2);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 0 0 20px 20px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Content Panel Styles */
+.content-panel {
+    height: 100%;
+    padding: 20px;
+}
+
+.content-slide {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.08),
+        0 5px 15px rgba(0,0,0,0.03);
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+.slide-inner {
+    padding: 40px;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #f8f9fa;
+}
+
+.slide-inner::-webkit-scrollbar {
+    width: 6px;
+}
+
+.slide-inner::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.slide-inner::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.slide-inner h3 {
+    color: #2d3436;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.slide-inner h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    border-radius: 2px;
+}
+
+.slide-inner h3 span {
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.feature-list {
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    box-shadow: 
+        0 3px 10px rgba(0,0,0,0.03),
+        0 1px 5px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 5px 15px rgba(0,0,0,0.08),
+        0 2px 8px rgba(0,0,0,0.04);
+}
+
+.feature-item i {
+    color: #007bff;
+    background: linear-gradient(145deg, #ffffff, #f0f7ff);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    box-shadow: 
+        0 3px 8px rgba(0,123,255,0.15),
+        0 1px 4px rgba(0,123,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover i {
+    transform: scale(1.1) rotate(5deg);
+    background: #007bff;
+    color: #fff;
+}
+
+.feature-item p {
+    color: #4a5568;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.action-button {
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.custom-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 5px 15px rgba(0,123,255,0.2),
+        0 3px 8px rgba(0,123,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: all 0.5s ease;
+}
+
+.custom-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0,123,255,0.3),
+        0 5px 12px rgba(0,123,255,0.2);
+    color: #fff;
+}
+
+.custom-btn:hover:before {
+    left: 100%;
+}
+
+/* Owl Carousel Navigation Enhancement */
+.testi-slider .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 -15px;
+    pointer-events: none;
+}
+
+.testi-slider .owl-prev,
+.testi-slider .owl-next {
+    width: 40px;
+    height: 40px;
+    background: #fff !important;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    position: relative;
+    left: -20px;
+}
+
+.testi-slider .owl-next {
+    left: auto;
+    right: -20px;
+}
+
+.testi-slider .owl-prev:hover,
+.testi-slider .owl-next:hover {
+    background: #007bff !important;
+    color: #fff !important;
+    transform: scale(1.1);
+}
+
+/* Dots Enhancement */
+.testi-slider .owl-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.testi-slider .owl-dot {
+    width: 10px;
+    height: 10px;
+    background: #e1e8ff !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.testi-slider .owl-dot.active {
+    background: #007bff !important;
+    transform: scale(1.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .slide-inner {
+        padding: 30px;
+    }
+
+    .slide-inner h3 {
+        font-size: 2rem;
+    }
+
+    .feature-item {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .content-panel {
+        padding: 15px;
+    }
+
+    .slide-inner {
+        padding: 25px;
+    }
+
+    .slide-inner h3 {
+        font-size: 1.8rem;
+    }
+
+    .feature-item p {
+        font-size: 1rem;
+    }
+}
+</style>
+
+<style>
+.features7-section pb-70 pt100-ipad {
+    padding: 70px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Video Panel Styles */
+.video-panel {
+    height: 100%;
+    padding: 20px;
+}
+
+.video-wrapper {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.1),
+        0 5px 15px rgba(0,0,0,0.05);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.control-dots {
+    display: flex;
+    gap: 8px;
+    padding: 15px 20px;
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+}
+
+.control-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.control-dots span:nth-child(1) { background: #ff6b6b; }
+.control-dots span:nth-child(2) { background: #ffd93d; }
+.control-dots span:nth-child(3) { background: #6bff7c; }
+
+.control-dots span:hover {
+    transform: scale(1.2);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 0 0 20px 20px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Content Panel Styles */
+.content-panel {
+    height: 100%;
+    padding: 20px;
+}
+
+.content-slide {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.08),
+        0 5px 15px rgba(0,0,0,0.03);
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+.slide-inner {
+    padding: 40px;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #f8f9fa;
+}
+
+.slide-inner::-webkit-scrollbar {
+    width: 6px;
+}
+
+.slide-inner::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.slide-inner::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.slide-inner h3 {
+    color: #2d3436;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.slide-inner h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    border-radius: 2px;
+}
+
+.slide-inner h3 span {
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.feature-list {
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    box-shadow: 
+        0 3px 10px rgba(0,0,0,0.03),
+        0 1px 5px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 5px 15px rgba(0,0,0,0.08),
+        0 2px 8px rgba(0,0,0,0.04);
+}
+
+.feature-item i {
+    color: #007bff;
+    background: linear-gradient(145deg, #ffffff, #f0f7ff);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    box-shadow: 
+        0 3px 8px rgba(0,123,255,0.15),
+        0 1px 4px rgba(0,123,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover i {
+    transform: scale(1.1) rotate(5deg);
+    background: #007bff;
+    color: #fff;
+}
+
+.feature-item p {
+    color: #4a5568;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.action-button {
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.custom-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 5px 15px rgba(0,123,255,0.2),
+        0 3px 8px rgba(0,123,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: all 0.5s ease;
+}
+
+.custom-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0,123,255,0.3),
+        0 5px 12px rgba(0,123,255,0.2);
+    color: #fff;
+}
+
+.custom-btn:hover:before {
+    left: 100%;
+}
+
+/* Owl Carousel Navigation Enhancement */
+.testi-slider .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 -15px;
+    pointer-events: none;
+}
+
+.testi-slider .owl-prev,
+.testi-slider .owl-next {
+    width: 40px;
+    height: 40px;
+    background: #fff !important;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    position: relative;
+    left: -20px;
+}
+
+.testi-slider .owl-next {
+    left: auto;
+    right: -20px;
+}
+
+.testi-slider .owl-prev:hover,
+.testi-slider .owl-next:hover {
+    background: #007bff !important;
+    color: #fff !important;
+    transform: scale(1.1);
+}
+
+/* Dots Enhancement */
+.testi-slider .owl-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.testi-slider .owl-dot {
+    width: 10px;
+    height: 10px;
+    background: #e1e8ff !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.testi-slider .owl-dot.active {
+    background: #007bff !important;
+    transform: scale(1.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .slide-inner {
+        padding: 30px;
+    }
+
+    .slide-inner h3 {
+        font-size: 2rem;
+    }
+
+    .feature-item {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .content-panel {
+        padding: 15px;
+    }
+    
+    .slide-inner {
+        padding: 30px;
+    }
+    
+    .slide-inner h3 {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<style>
+.features8-section pt50-ipad {
+    padding: 50px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Video Panel Styles */
+.video-panel {
+    height: 100%;
+    padding: 20px;
+}
+
+.video-wrapper {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.1),
+        0 5px 15px rgba(0,0,0,0.05);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.control-dots {
+    display: flex;
+    gap: 8px;
+    padding: 15px 20px;
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+}
+
+.control-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.control-dots span:nth-child(1) { background: #ff6b6b; }
+.control-dots span:nth-child(2) { background: #ffd93d; }
+.control-dots span:nth-child(3) { background: #6bff7c; }
+
+.control-dots span:hover {
+    transform: scale(1.2);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 0 0 20px 20px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Content Panel Styles */
+.content-panel {
+    height: 100%;
+    padding: 20px;
+}
+
+.content-slide {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.08),
+        0 5px 15px rgba(0,0,0,0.03);
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+.slide-inner {
+    padding: 40px;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #f8f9fa;
+}
+
+.slide-inner::-webkit-scrollbar {
+    width: 6px;
+}
+
+.slide-inner::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.slide-inner::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.slide-inner h3 {
+    color: #2d3436;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.slide-inner h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    border-radius: 2px;
+}
+
+.slide-inner h3 span {
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.feature-list {
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    box-shadow: 
+        0 3px 10px rgba(0,0,0,0.03),
+        0 1px 5px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 5px 15px rgba(0,0,0,0.08),
+        0 2px 8px rgba(0,0,0,0.04);
+}
+
+.feature-item i {
+    color: #007bff;
+    background: linear-gradient(145deg, #ffffff, #f0f7ff);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    box-shadow: 
+        0 3px 8px rgba(0,123,255,0.15),
+        0 1px 4px rgba(0,123,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover i {
+    transform: scale(1.1) rotate(5deg);
+    background: #007bff;
+    color: #fff;
+}
+
+.feature-item p {
+    color: #4a5568;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.action-button {
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.custom-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 5px 15px rgba(0,123,255,0.2),
+        0 3px 8px rgba(0,123,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: all 0.5s ease;
+}
+
+.custom-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0,123,255,0.3),
+        0 5px 12px rgba(0,123,255,0.2);
+    color: #fff;
+}
+
+.custom-btn:hover:before {
+    left: 100%;
+}
+
+/* Owl Carousel Navigation Enhancement */
+.testi-slider .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 -15px;
+    pointer-events: none;
+}
+
+.testi-slider .owl-prev,
+.testi-slider .owl-next {
+    width: 40px;
+    height: 40px;
+    background: #fff !important;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    position: relative;
+    left: -20px;
+}
+
+.testi-slider .owl-next {
+    left: auto;
+    right: -20px;
+}
+
+.testi-slider .owl-prev:hover,
+.testi-slider .owl-next:hover {
+    background: #007bff !important;
+    color: #fff !important;
+    transform: scale(1.1);
+}
+
+/* Dots Enhancement */
+.testi-slider .owl-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.testi-slider .owl-dot {
+    width: 10px;
+    height: 10px;
+    background: #e1e8ff !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.testi-slider .owl-dot.active {
+    background: #007bff !important;
+    transform: scale(1.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .slide-inner {
+        padding: 30px;
+    }
+
+    .slide-inner h3 {
+        font-size: 2rem;
+    }
+
+    .feature-item {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .content-panel {
+        padding: 15px;
+    }
+    
+    .slide-inner {
+        padding: 30px;
+    }
+    
+    .slide-inner h3 {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<style>
+.testimonial-section ptb-100 {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Video Panel Styles */
+.video-panel {
+    height: 100%;
+    padding: 20px;
+}
+
+.video-wrapper {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.1),
+        0 5px 15px rgba(0,0,0,0.05);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.control-dots {
+    display: flex;
+    gap: 8px;
+    padding: 15px 20px;
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+}
+
+.control-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.control-dots span:nth-child(1) { background: #ff6b6b; }
+.control-dots span:nth-child(2) { background: #ffd93d; }
+.control-dots span:nth-child(3) { background: #6bff7c; }
+
+.control-dots span:hover {
+    transform: scale(1.2);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 0 0 20px 20px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Content Panel Styles */
+.content-panel {
+    height: 100%;
+    padding: 20px;
+}
+
+.content-slide {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.08),
+        0 5px 15px rgba(0,0,0,0.03);
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+.slide-inner {
+    padding: 40px;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #f8f9fa;
+}
+
+.slide-inner::-webkit-scrollbar {
+    width: 6px;
+}
+
+.slide-inner::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.slide-inner::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.slide-inner h3 {
+    color: #2d3436;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.slide-inner h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    border-radius: 2px;
+}
+
+.slide-inner h3 span {
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.feature-list {
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    box-shadow: 
+        0 3px 10px rgba(0,0,0,0.03),
+        0 1px 5px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 5px 15px rgba(0,0,0,0.08),
+        0 2px 8px rgba(0,0,0,0.04);
+}
+
+.feature-item i {
+    color: #007bff;
+    background: linear-gradient(145deg, #ffffff, #f0f7ff);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    box-shadow: 
+        0 3px 8px rgba(0,123,255,0.15),
+        0 1px 4px rgba(0,123,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover i {
+    transform: scale(1.1) rotate(5deg);
+    background: #007bff;
+    color: #fff;
+}
+
+.feature-item p {
+    color: #4a5568;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.action-button {
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.custom-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 5px 15px rgba(0,123,255,0.2),
+        0 3px 8px rgba(0,123,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: all 0.5s ease;
+}
+
+.custom-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0,123,255,0.3),
+        0 5px 12px rgba(0,123,255,0.2);
+    color: #fff;
+}
+
+.custom-btn:hover:before {
+    left: 100%;
+}
+
+/* Owl Carousel Navigation Enhancement */
+.testi-slider .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 -15px;
+    pointer-events: none;
+}
+
+.testi-slider .owl-prev,
+.testi-slider .owl-next {
+    width: 40px;
+    height: 40px;
+    background: #fff !important;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    position: relative;
+    left: -20px;
+}
+
+.testi-slider .owl-next {
+    left: auto;
+    right: -20px;
+}
+
+.testi-slider .owl-prev:hover,
+.testi-slider .owl-next:hover {
+    background: #007bff !important;
+    color: #fff !important;
+    transform: scale(1.1);
+}
+
+/* Dots Enhancement */
+.testi-slider .owl-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.testi-slider .owl-dot {
+    width: 10px;
+    height: 10px;
+    background: #e1e8ff !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.testi-slider .owl-dot.active {
+    background: #007bff !important;
+    transform: scale(1.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .slide-inner {
+        padding: 30px;
+    }
+
+    .slide-inner h3 {
+        font-size: 2rem;
+    }
+
+    .feature-item {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .content-panel {
+        padding: 15px;
+    }
+    
+    .slide-inner {
+        padding: 30px;
+    }
+    
+    .slide-inner h3 {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<style>
+.footer-top {
+    padding: 100px 0 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.classes-foot {
+    margin-bottom: 40px;
+}
+
+.classes-foot ul {
+    list-style: none;
+    padding: 0;
+}
+
+.classes-foot ul li {
+    margin-bottom: 15px;
+}
+
+.classes-foot ul li a {
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.classes-foot ul li a:hover {
+    color: #007bff;
+}
+
+.foot-about {
+    text-align: right;
+}
+
+.social-icon {
+    margin-top: 20px;
+}
+
+.social-icon ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-icon ul li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.social-icon ul li a {
+    color: #333;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-icon ul li a:hover {
+    color: #007bff;
+}
+
+.event-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.shape1, .shape2, .shape3, .shape4, .shape5, .shape6 {
+    position: absolute;
+}
+
+.shape1 {
+    top: 0;
+    left: 0;
+    width: 37px;
+    height: 94px;
+}
+
+.shape2 {
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 43px;
+}
+
+.shape3 {
+    bottom: 0;
+    left: 0;
+    width: 46px;
+    height: 48px;
+}
+
+.shape4 {
+    bottom: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+}
+
+.shape5 {
+    bottom: 0;
+    right: 0;
+    width: 46px;
+    height: 64px;
+}
+
+.shape6 {
+    bottom: 0;
+    right: 0;
+    width: 46px;
+    height: 42px;
+}
+
+.footer-bottom {
+    padding: 40px 0;
+    background: #f8f9fa;
+}
+
+.footer-bottom p {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+#social-media-fix {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#social-media-fix a {
+    display: inline-block;
+    margin-left: 15px;
+    color: #fff;
+    background: #007bff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    transition: background 0.3s ease;
+}
+
+#social-media-fix a:hover {
+    background: #0056b3;
+}
+
+#footer-left-fix {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+#footer-left-fix a {
+    display: block;
+    color: #fff;
+    background: #333;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+#footer-left-fix a:hover {
+    background: #555;
+}
+</style>
+
+<style>
+.blog-slider-main {
+    padding: 0 30px;
+}
+
+.blog-item {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.blog-item:hover {
+    transform: translateY(-5px);
+}
+
+.post-content-wrapper {
+    padding: 30px;
+}
+
+.entry-image-wrapper {
+    margin-bottom: 20px;
+}
+
+.entry-image-wrapper img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.entry-data-wrapper {
+    text-align: center;
+}
+
+.entry-header-wrapper {
+    margin-bottom: 15px;
+}
+
+.entry-header {
+    margin-bottom: 5px;
+}
+
+.entry-title {
+    font-size: 1.5rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.entry-title:hover {
+    color: #007bff;
+}
+
+.entry-summary {
+    color: #666;
+    font-size: 1rem;
+}
+
+.more-link-wrapper {
+    margin-top: 20px;
+}
+
+.custom-btn-white {
+    display: inline-block;
+    padding: 10px 25px;
+    background: #fff;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.custom-btn-white:hover {
+    background: #333;
+    color: #fff;
+}
+</style>
+
+<style>
+.content-panel {
+    height: 450px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content-carousel {
+    flex: 1;
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.carousel-slide {
+    height: 100%;
+    padding: 25px;
+    background: #fff;
+}
+
+.slide-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2d3436;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    border-radius: 2px;
+}
+
+.section-title span {
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.feature-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f7ff;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.feature-icon i {
+    color: #007bff;
+    font-size: 14px;
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.feature-item:hover .feature-icon {
+    background: #007bff;
+}
+
+.feature-item:hover .feature-icon i {
+    color: #fff;
+}
+
+.feature-item p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+.highlight-item {
+    background: linear-gradient(145deg, #f0f7ff, #ffffff);
+    border-left: 3px solid #007bff;
+}
+
+.action-button {
+    margin-top: auto;
+    text-align: center;
+}
+
+.custom-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #007bff, #00d2ff);
+    color: #fff;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,123,255,0.2);
+}
+
+.custom-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,123,255,0.3);
+    color: #fff;
+}
+
+/* Carousel Navigation */
+.content-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    pointer-events: none;
+}
+
+.content-carousel .owl-prev,
+.content-carousel .owl-next {
+    width: 35px;
+    height: 35px;
+    background: #fff !important;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+}
+
+.content-carousel .owl-prev:hover,
+.content-carousel .owl-next:hover {
+    background: linear-gradient(45deg, #007bff, #00d2ff) !important;
+    color: #fff !important;
+}
+
+/* Dots */
+.content-carousel .owl-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.content-carousel .owl-dot {
+    width: 8px;
+    height: 8px;
+    background: #e1e8ff !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.content-carousel .owl-dot.active {
+    width: 20px;
+    border-radius: 4px;
+    background: linear-gradient(45deg, #007bff, #00d2ff) !important;
+}
+
+@media (max-width: 991px) {
+    .content-panel {
+        height: auto;
+    }
+    
+    .content-carousel {
+        min-height: 300px;
+    }
+}
+</style>
+
+<script>
+$(document).ready(function() {
+    // Initialize both carousels
+    $('.content-carousel').each(function() {
+        $(this).owlCarousel({
+            items: 1,
+            loop: true,
+            margin: 0,
+            nav: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            navText: [
+                '<i class="fa fa-chevron-left"></i>',
+                '<i class="fa fa-chevron-right"></i>'
+            ],
+            responsive: {
+                0: {
+                    nav: false
+                },
+                768: {
+                    nav: true
+                }
+            }
+        });
+    });
+});
+</script>
+
+<style>
+.content-panel {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.slide-content {
+    padding: 20px 0;
+}
+
+.slide-title {
+    font-size: 42px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.highlight {
+    color: #0099ff;
+}
+
+.content-box {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.content-box p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #4a5568;
+    margin: 0;
+}
+
+.action-link {
+    color: #0099ff;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+/* Navigation Squares */
+.carousel-indicators {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    gap: 10px;
+    bottom: 0;
+}
+
+.nav-square {
+    width: 15px !important;
+    height: 15px !important;
+    border: 1px solid #ddd !important;
+    background-color: transparent !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    cursor: pointer;
+}
+
+.nav-square.active {
+    background-color: #0099ff !important;
+    border-color: #0099ff !important;
+}
+
+/* Bootstrap Carousel Overrides */
+.carousel-item {
+    display: none;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+@media (max-width: 991px) {
+    .content-panel {
+        padding: 30px;
+    }
+    
+    .slide-title {
+        font-size: 36px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var myCarousel = new bootstrap.Carousel(document.getElementById('whoWeAreCarousel'), {
+        interval: 5000,
+        wrap: true,
+        touch: true
+    });
+});
+</script>
 </head>
 
 <body>   
@@ -791,147 +3594,147 @@ document.addEventListener('DOMContentLoaded', function() {
 
    <section class="features2-section">
       <div class="container">
-         <div class="row">
-            <div class="col-md-5 col-lg-5 pt100-ipad  d-none d-sm-block" data-aos="zoom-in" data-aos-delay="100">
-               <div class="slider-imgs slider-imgst">
-                  <img width="266" height="129" src="assets/img/svg/tv-top.svg" alt="TV" loading="lazy">
-               </div>
-               <div class="youvideo">
-                  <div id="video-container"></div>
-               </div>
-               <div class="slider-imgs slider-imgsb">
-                  <img width="266" height="129" src="assets/img/svg/tv-bottom.svg" alt="TV" loading="lazy">
-               </div>
+         <div class="row align-items-center">
+            <!-- Left Panel - Video Section -->
+            <div class="col-md-6" data-aos="fade-right">
+                <div class="video-panel">
+                    <div class="video-wrapper">
+                        <div class="control-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="video-container">
+                            <div id="video-container"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-7 col-lg-7 pt100-ipad d-none d-sm-block pd-top pd-left" data-aos="fade-down" data-aos-delay="100">
-               <div class="testi-slider owl-carousel owl-theme">
-                  <div class="single-testimonial">
-                     <div class="single-slider">
-                        <div class="slider-text">
-                           <h3><span>Who</span> we are?</h3>
-                           <div class="special-list">
-                              <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>Established in 2008, Little Angel® has evolved into India's premier early childhood education provider, setting new standards in preschool education.</li>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>We are a community of passionate educators, child development experts, and learning specialists dedicated to creating transformative early learning experiences.</li>
-                              </ul>
-                           </div>
-                           <h3><span>What</span> we do?</h3>
-                           <div class="special-list">
-                              <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>We create enriching learning environments where every child's natural curiosity is nurtured into a lifelong love for learning. Our approach combines cutting-edge educational research with time-tested teaching methods.</li>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>Our centers feature state-of-the-art facilities, expertly trained educators, and a scientifically designed curriculum that promotes holistic development. We maintain a perfect balance of academic excellence and emotional nurturing.</li>
-                              </ul>
-                           </div>
-                           <div class="custom-button">
-                              <a href="about-little-millennium.html" class="custom-btn">read more</a>
-                           </div>
+
+            <!-- Right Panel - Content Section -->
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="content-panel">
+                    <div id="whoWeAreCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                        <div class="carousel-inner">
+                            <!-- Who we are slide -->
+                            <div class="carousel-item active" data-bs-interval="5000">
+                                <div class="slide-content">
+                                    <h2 class="slide-title">
+                                        Who <span class="highlight">we are?</span>
+                                    </h2>
+                                    <div class="content-box">
+                                        <p>Established in 2008, Little Angel® has evolved into India's premier early childhood education provider, setting new standards in preschool education.</p>
+                                    </div>
+                                    <a href="#" class="action-link">Learn More</a>
+                                </div>
+                            </div>
+
+                            <!-- Mission slide -->
+                            <div class="carousel-item" data-bs-interval="5000">
+                                <div class="slide-content">
+                                    <h2 class="slide-title">
+                                        Our <span class="highlight">Mission</span>
+                                    </h2>
+                                    <div class="content-box">
+                                        <p>To provide exceptional early childhood education through our innovative curriculum and nurturing environment.</p>
+                                    </div>
+                                    <a href="#" class="action-link">Learn More</a>
+                                </div>
+                            </div>
+
+                            <!-- Vision slide -->
+                            <div class="carousel-item" data-bs-interval="5000">
+                                <div class="slide-content">
+                                    <h2 class="slide-title">
+                                        Our <span class="highlight">Vision</span>
+                                    </h2>
+                                    <div class="content-box">
+                                        <p>To revolutionize early childhood education by creating dynamic learning environments that ignite curiosity and foster creativity.</p>
+                                    </div>
+                                    <a href="#" class="action-link">Learn More</a>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-                  <div class="single-testimonial">
-                     <div class="single-slider">
-                        <div class="slider-text">
-                           <h3>Vision</h3>
-                           <div class="special-list">
-                              <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>To revolutionize early childhood education by creating dynamic learning environments that ignite curiosity, foster creativity, and build strong foundations for lifelong learning. We envision our students as future innovators, leaders, and compassionate global citizens who will shape tomorrow's world.</li>
-                              </ul>
-                           </div>
-                           <h3>Mission</h3>
-                           <div class="special-list">
-                              <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>To provide exceptional early childhood education through our innovative curriculum, nurturing environment, and expert educators. We are committed to:
-                                 - Fostering each child's unique potential
-                                 - Building strong character foundations
-                                 - Promoting cultural awareness and respect
-                                 - Creating joyful learning experiences
-                                 - Partnering with families for holistic development</li>
-                              </ul>
-                           </div>
-                           <div class="custom-button">
-                              <a href="about-little-millennium.html" class="custom-btn">read more</a>
-                           </div>
+
+                        <!-- Navigation squares -->
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#whoWeAreCarousel" data-bs-slide-to="0" class="nav-square active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#whoWeAreCarousel" data-bs-slide-to="1" class="nav-square" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#whoWeAreCarousel" data-bs-slide-to="2" class="nav-square" aria-label="Slide 3"></button>
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="slider-img" data-aos="fade-left" data-aos-delay="200">
-                  <div class="who-we-are-img-padding">
-                     <img width="98" height="200" src="assets/img/home-webp/9.webp" class="lazyphoto read-more-girl" alt="Image" loading="lazy">
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
          </div>
-         <!-----Mobile -->
+      </div>
+   </section>
+
+   <section class="features4-section pb50">
+      <div class="container-fluid">
          <div class="row">
-            <div class="col-md-7 col-lg-7  d-ipad-none d-lg-none pd-top pd-left" data-aos="fade-down"
-               data-aos-delay="100">
-               <div class="testi-slider owl-carousel owl-theme">
-                  <div class="single-testimonial">
-                     <div class="single-slider">
-                        <div class="slider-text">
-                           <h3><span>Who</span> we are?</h3>
-                           <div class="special-list">
-                              <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>Established in 2008, Little Angel® has evolved into India's premier early childhood education provider, setting new standards in preschool education.</li>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>We are a community of passionate educators, child development experts, and learning specialists dedicated to creating transformative early learning experiences.</li>
-                              </ul>
-                           </div>
-                           <h3><span>What</span> we do?</h3>
-                           <div class="special-list">
-                              <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>We create enriching learning environments where every child's natural curiosity is nurtured into a lifelong love for learning. Our approach combines cutting-edge educational research with time-tested teaching methods.</li>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>Our centers feature state-of-the-art facilities, expertly trained educators, and a scientifically designed curriculum that promotes holistic development. We maintain a perfect balance of academic excellence and emotional nurturing.</li>
-                              </ul>
-                           </div>
-                           <div class="custom-button">
-                              <a href="about-little-millennium.html" class="custom-btn">read more</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="single-testimonial">
-                     <div class="single-slider">
-                        <div class="slider-text">
-                           <h3>Vision</h3>
-                           <div class="special-list">
-                              <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>To revolutionize early childhood education by creating dynamic learning environments that ignite curiosity, foster creativity, and build strong foundations for lifelong learning. We envision our students as future innovators, leaders, and compassionate global citizens who will shape tomorrow's world.</li>
-                              </ul>
-                           </div>
-                           <h3>Mission</h3>
-                           <div class="special-list">
-                              <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>To provide exceptional early childhood education through our innovative curriculum, nurturing environment, and expert educators. We are committed to:
-                                 - Fostering each child's unique potential
-                                 - Building strong character foundations
-                                 - Promoting cultural awareness and respect
-                                 - Creating joyful learning experiences
-                                 - Partnering with families for holistic development</li>
-                              </ul>
-                           </div>
-                           <div class="custom-button">
-                              <a href="about-little-millennium.html" class="custom-btn">read more</a>
-                           </div>
-                        </div>
-                     </div>
+            <div class="col-md-3 col-lg-3" data-aos="fade-down" data-aos-delay="100">
+               <div class="slider-imgs">
+                  <div class="img">
+                     <img width="350" height="550" src="assets/img/slider/girl.webp" class="lazyphoto" alt="Image" loading="lazy"/>
                   </div>
                </div>
             </div>
-            <div class="col-md-5 col-lg-5 d-ipad-none d-lg-none" data-aos="zoom-in" data-aos-delay="100">
-               <div class="slider-imgs slider-imgt">
-                  <img width="266" height="129" src="assets/img/svg/tv-top.svg" alt="TV" loading="lazy">
+            <div class="col-md-9 col-lg-9" data-aos="fade-down" data-aos-delay="100">
+               <div class="single-slider slider-imgsp">
+                  <div class="slider-text">
+                     <h3>Our Programs</h3>
+                     <p>Little Angel ’s Preschool Program levels have been strategically designed to ensure holistic development of your child. Explore our preschool programs to understand why Little Angel <sup>&#174;</sup> is indeed, the best play school for kids in India.</p>
+                  </div>
                </div>
-               <div class="youvideo">
-                  <div id="video-container"></div>
-               </div>
-               <div class="slider-imgs slider-imgsb">
-                  <img width="266" height="129" src="assets/img/svg/tv-bottom.svg" alt="TV" loading="lazy">
+               <div class="row align-items-center my-5">
+                  <div class="col-md-12 col-lg-12 px-5">
+                     <div class="our-programs-slider owl-carousel owl-theme">
+                        <div class="single-testimonial">
+                           <div class="single-slider" data-aos="zoom-in" data-aos-delay="100">
+                              <div class="slider-imgs">
+                                 <div class="img">
+                                    <picture>
+                                       <img width="230" height="378" alt="Program" class="logo" src="assets/img/program/new-p1.webp" loading="lazy">
+                                    </picture>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="single-testimonial">
+                           <div class="single-slider" data-aos="zoom-in" data-aos-delay="100">
+                              <div class="slider-imgs">
+                                 <div class="img">
+                                    <img width="230" height="378" src="assets/img/program/new-p2.webp" class="lazyphoto" alt="Image" loading="lazy" />
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="single-testimonial">
+                           <div class="single-slider" data-aos="zoom-in" data-aos-delay="100">
+                              <div class="slider-imgs">
+                                 <div class="img">
+                                    <img width="230" height="378" src="assets/img/program/new-p3.webp" class="lazyphoto" alt="Image" loading="lazy" />
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="single-testimonial">
+                           <div class="single-slider" data-aos="zoom-in" data-aos-delay="100">
+                              <div class="slider-imgs">
+                                 <div class="img">
+                                    <img width="230" height="378" src="assets/img/program/new-p4.webp" alt="Image" loading="lazy" />
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
       </div>
    </section>
+   
 
    <section class="features3-section">
       <div class="container">
@@ -1069,72 +3872,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
    </section>
 
-   <section class="features4-section pb50">
-      <div class="container-fluid">
-         <div class="row">
-            <div class="col-md-3 col-lg-3" data-aos="fade-down" data-aos-delay="100">
-               <div class="slider-imgs">
-                  <div class="img">
-                     <img width="350" height="550" src="assets/img/slider/girl.webp" class="lazyphoto" alt="Image" loading="lazy"/>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-9 col-lg-9" data-aos="fade-down" data-aos-delay="100">
-               <div class="single-slider slider-imgsp">
-                  <div class="slider-text">
-                     <h3>Our Programs</h3>
-                     <p>Little Angel ’s Preschool Program levels have been strategically designed to ensure holistic development of your child. Explore our preschool programs to understand why Little Angel <sup>&#174;</sup> is indeed, the best play school for kids in India.</p>
-                  </div>
-               </div>
-               <div class="row align-items-center my-5">
-                  <div class="col-md-12 col-lg-12 px-5">
-                     <div class="our-programs-slider owl-carousel owl-theme">
-                        <div class="single-testimonial">
-                           <div class="single-slider" data-aos="zoom-in" data-aos-delay="100">
-                              <div class="slider-imgs">
-                                 <div class="img">
-                                    <picture>
-                                       <img width="230" height="378" alt="Program" class="logo" src="assets/img/program/new-p1.webp" loading="lazy">
-                                    </picture>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="single-testimonial">
-                           <div class="single-slider" data-aos="zoom-in" data-aos-delay="100">
-                              <div class="slider-imgs">
-                                 <div class="img">
-                                    <img width="230" height="378" src="assets/img/program/new-p2.webp" class="lazyphoto" alt="Image" loading="lazy" />
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="single-testimonial">
-                           <div class="single-slider" data-aos="zoom-in" data-aos-delay="100">
-                              <div class="slider-imgs">
-                                 <div class="img">
-                                    <img width="230" height="378" src="assets/img/program/new-p3.webp" class="lazyphoto" alt="Image" loading="lazy" />
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="single-testimonial">
-                           <div class="single-slider" data-aos="zoom-in" data-aos-delay="100">
-                              <div class="slider-imgs">
-                                 <div class="img">
-                                    <img width="230" height="378" src="assets/img/program/new-p4.webp" alt="Image" loading="lazy" />
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-
+   
    <section class="features6-section pt-100">
       <div class="container-fluid">
          <div class="single-slider">
@@ -1243,7 +3981,6 @@ document.addEventListener('DOMContentLoaded', function() {
          </div>
       </div>
    </section>
-
    <section class="features7-section pb-70 pt100-ipad">
       <div class="container">
          <div class="row align-items-center">
@@ -1270,7 +4007,6 @@ document.addEventListener('DOMContentLoaded', function() {
          </div>
       </div>
    </section>
-
    <section class="features8-section pt50-ipad">
       <div class="container">
          <div class="row align-items-center">
@@ -1295,18 +4031,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li>Comprehensive Support: Complete operational guidance, from center setup to staff training</li>
                         <li>Strong ROI: Attractive franchise model with proven financial returns and multiple revenue streams</li>
                         <li>Brand Excellence: Benefit from our established reputation and strong market presence</li>
-                        <li>Training & Development: Ongoing professional development programs for your staff</li>
-                        <li>Marketing Support: Dedicated marketing assistance and proven enrollment strategies</li>
+                       
                      </ul>
 
                      <p>Our franchise partners receive:</p>
                      <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 15px;">
                         <li>Exclusive territory rights</li>
                         <li>Detailed operations manual</li>
-                        <li>Staff recruitment assistance</li>
-                        <li>Regular curriculum updates</li>
-                        <li>Quality control systems</li>
-                        <li>Technology integration support</li>
+                        
                      </ul>
 
                      <p>Take the first step towards owning a successful preschool business. Join our network of passionate educators making a difference in early childhood education.</p>
@@ -1440,7 +4172,6 @@ document.addEventListener('DOMContentLoaded', function() {
          </div>
       </div>
    </section>
-
    <div class="footer-top">
       <div class="container">
          <div class="row">
@@ -1508,7 +4239,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
    <div class="footer-bottom">
       <div class="container">
-         <p>COPYRIGHT &copy; 2024, Little Angel , ALL RIGHTS RESERVED</p>
+         <p>COPYRIGHT &copy; 2025, Little Angel Pre-Primary School, ALL RIGHTS RESERVED</p>
       </div>
    </div>
 
@@ -1524,13 +4255,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
       <a href="https://in.linkedin.com/company/littlemillenniumeducationpvtltd" target="_blank" aria-label="linkedin">
          <i class="fa fa-linkedin color-4"></i>
-      </a>
-   </div>
-
-   <div id="footer-left-fix">
-      <a href="http://geniusbox.in/" target="_blank">
-         <img src="assets/img/home-webp/GPTW.webp" width="80" height="140" class="fix1" alt="logo" loading="lazy">
-         <img src="assets/img/home-webp/GPTS.webp" width="170" height="79" class="fix2" alt="logo" loading="lazy">
       </a>
    </div>
 
@@ -1638,3 +4362,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- Mirrored from www.littlemillennium.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Apr 2025 07:40:02 GMT -->
 </html>
+
+
+
+
+
