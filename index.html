@@ -108,6 +108,378 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KN8RHBN');</script>
 <!-- End Google Tag Manager -->
+
+<style>
+/* Clean Navigation Enhancement */
+.navbar-area {
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.main-nav {
+    background: #ffffff;
+}
+
+.main-nav .navbar {
+    padding: 0;
+}
+
+/* Logo */
+.logo {
+    padding: 12px 0;
+}
+
+.logo img {
+    max-height: 65px;
+    width: auto;
+}
+
+/* Navigation Links */
+.main-nav .navbar-nav {
+    margin-left: auto;
+}
+
+.main-nav .nav-item {
+    margin: 0 5px;
+}
+
+.main-nav .nav-link {
+    color: #333;
+    font-weight: 600;
+    padding: 30px 15px;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    position: relative;
+    text-decoration: none;
+}
+
+/* Hover Effect - Only for Main Nav Items */
+.main-nav .navbar-nav > .nav-item > .nav-link:before {
+    content: '';
+    position: absolute;
+    bottom: 25px;
+    left: 15px;
+    right: 15px;
+    height: 2px;
+    background: #3498db;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.main-nav .navbar-nav > .nav-item > .nav-link:hover:before {
+    transform: scaleX(1);
+}
+
+/* Dropdown Menu */
+.main-nav .dropdown-menu {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 10px 0;
+    margin-top: -5px;
+}
+
+.main-nav .dropdown-item {
+    color: #333;
+    font-size: 14px;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+}
+
+.main-nav .dropdown-item:hover,
+.main-nav .dropdown-item:focus {
+    color: #3498db;
+    background: rgba(52, 152, 219, 0.05);
+    padding-left: 25px;
+    text-decoration: none !important;
+}
+
+/* Remove any text decoration from dropdown items */
+.main-nav .dropdown-menu .nav-link:before,
+.main-nav .dropdown-menu .nav-link:after {
+    display: none !important;
+}
+
+.main-nav .dropdown-menu .nav-link {
+    text-decoration: none !important;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    padding: 10px 0;
+}
+
+.mobile-nav .logo img {
+    max-height: 50px;
+}
+
+/* Mobile Menu Button */
+.navbar-toggler {
+    border: none;
+    padding: 0;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .main-nav .navbar-collapse {
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        margin-top: 10px;
+    }
+
+    .main-nav .nav-link {
+        padding: 12px 15px;
+    }
+
+    .main-nav .nav-link:before {
+        display: none;
+    }
+
+    .main-nav .dropdown-menu {
+        box-shadow: none;
+        padding: 0 0 0 15px;
+        margin: 0;
+    }
+
+    .main-nav .dropdown-item {
+        padding: 8px 15px;
+    }
+}
+</style>
+
+<!-- Add these spans for the hamburger menu -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar-area');
+    const toggler = document.querySelector('.navbar-toggler');
+    
+    // Sticky header
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            navbar.classList.add('sticky');
+        } else {
+            navbar.classList.remove('sticky');
+        }
+    });
+
+    // Hamburger animation
+    toggler.addEventListener('click', function() {
+        this.classList.toggle('active');
+    });
+});
+</script>
+
+<style>
+/* Enhanced Navigation Styles */
+.navbar-area {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-area.sticky {
+    background: rgba(255, 255, 255, 0.98);
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.main-nav .navbar {
+    padding: 0;
+}
+
+.main-nav .navbar-nav {
+    margin-left: auto;
+}
+
+.main-nav .nav-item {
+    position: relative;
+    padding: 0 12px;
+}
+
+.main-nav .nav-link {
+    color: #333;
+    font-weight: 500;
+    padding: 25px 0;
+    font-size: 16px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.main-nav .nav-link:before {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #007bff;
+    transition: all 0.3s ease;
+}
+
+.main-nav .nav-link:hover:before {
+    width: 100%;
+}
+
+.main-nav .nav-link:hover {
+    color: #007bff;
+}
+
+/* Enhanced Dropdown Styles */
+.main-nav .dropdown-menu {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    margin-top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.main-nav .dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.main-nav .dropdown-item {
+    color: #333;
+    font-size: 15px;
+    padding: 8px 25px;
+    transition: all 0.3s ease;
+}
+
+.main-nav .dropdown-item:hover {
+    color: #007bff;
+    background: rgba(0, 123, 255, 0.1);
+    transform: translateX(5px);
+}
+
+/* Mobile Navigation Enhancements */
+.mobile-nav {
+    padding: 15px;
+}
+
+.mobile-nav .navbar-toggler {
+    border: none;
+    padding: 0;
+    outline: none;
+    position: relative;
+    width: 30px;
+    height: 22px;
+}
+
+.mobile-nav .navbar-toggler span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transition: all 0.3s ease;
+    left: 0;
+}
+
+.mobile-nav .navbar-toggler span:first-child {
+    top: 0;
+}
+
+.mobile-nav .navbar-toggler span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mobile-nav .navbar-toggler span:last-child {
+    bottom: 0;
+}
+
+.mobile-nav .navbar-toggler.active span:first-child {
+    transform: rotate(45deg);
+    top: 10px;
+}
+
+.mobile-nav .navbar-toggler.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-nav .navbar-toggler.active span:last-child {
+    transform: rotate(-45deg);
+    bottom: 10px;
+}
+
+/* Logo Enhancement */
+.logo img {
+    max-height: 60px;
+    transition: all 0.3s ease;
+}
+
+.sticky .logo img {
+    max-height: 50px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .main-nav .navbar-nav {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .main-nav .nav-link {
+        padding: 12px 0;
+    }
+    
+    .main-nav .dropdown-menu {
+        box-shadow: none;
+        padding: 5px 20px;
+    }
+    
+    .main-nav .nav-link:before {
+        display: none;
+    }
+}
+
+/* Button Styles */
+.custom-btn {
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.custom-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.custom-btn:hover:before {
+    width: 100%;
+}
+</style>
 </head>
 
 <body>   
@@ -152,12 +524,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                            <a href="#" class="nav-link dropdown-toggle">About Us</a>
                            <ul class="dropdown-menu">
                               <li class="nav-item">
-                                 <a href="about-little-millennium.html" class="nav-link">Little Angel <sup>&#174;</sup> Preschool</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a href="life-at-little-millennium.html" class="nav-link">Life at Little Angel <sup>&#174;</sup></a>
-                              </li>
-                              <li class="nav-item">
                                  <a href="leadership-team.html" class="nav-link">Leadership Team</a>
                               </li>
                               <li class="nav-item">
@@ -174,24 +540,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                            </ul>
                         </li>
                         <li class="nav-item">
-                           <a href="#" class="nav-link dropdown-toggle">Parents Corner</a>
-                           <ul class="dropdown-menu">
-                              <li class="nav-item">
-                                 <a href="https://littlemillennium.com/blog/" class="nav-link">Blog</a>
-                              </li>
-                           </ul>
-                        </li>
-                        <li class="nav-item">
                            <a href="#" class="nav-link dropdown-toggle">Admissions</a>
                            <ul class="dropdown-menu">
                               <li class="nav-item">
                                  <a href="admission.html" class="nav-link">Admission Details</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a href="centre-locator.html" class="nav-link">Centre Locator</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a href="faqs.html" class="nav-link">FAQ'S</a>
                               </li>
                            </ul>
                         </li>
@@ -200,10 +552,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </li>
                         <li class="nav-item">
                            <a href="contact-us.html" class="nav-link">Contact us</a>
-                        </li>
-
-                        <li class="nav-item padding-15">
-                           <a href="https://career.littlemillennium.com/" target="_blank" class="nav-link join-us">JOIN US</a>
                         </li>
                      </ul>
                   </div>
@@ -463,15 +811,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                            <h3><span>Who</span> we are?</h3>
                            <div class="special-list">
                               <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>Little Angel <sup>&#174;</sup> was established in the year 2008.</li>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>One of the leading preschool chain in India. </li>
+                                 <li><i class="fa fa-check" aria-hidden="true"></i>Established in 2008, Little Angel® has evolved into India's premier early childhood education provider, setting new standards in preschool education.</li>
+                                 <li><i class="fa fa-check" aria-hidden="true"></i>We are a community of passionate educators, child development experts, and learning specialists dedicated to creating transformative early learning experiences.</li>
                               </ul>
                            </div>
                            <h3><span>What</span> we do?</h3>
                            <div class="special-list">
                               <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>We lay emphasis on building the right foundation for the child.</li>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>Qualified and trained teachers, child-friendly infrastructure and playful learning environment ensure a high-quality experience for children. </li>
+                                 <li><i class="fa fa-check" aria-hidden="true"></i>We create enriching learning environments where every child's natural curiosity is nurtured into a lifelong love for learning. Our approach combines cutting-edge educational research with time-tested teaching methods.</li>
+                                 <li><i class="fa fa-check" aria-hidden="true"></i>Our centers feature state-of-the-art facilities, expertly trained educators, and a scientifically designed curriculum that promotes holistic development. We maintain a perfect balance of academic excellence and emotional nurturing.</li>
                               </ul>
                            </div>
                            <div class="custom-button">
@@ -486,13 +834,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                            <h3>Vision</h3>
                            <div class="special-list">
                               <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>To enable, energise and enhance childhood by fostering growth of mind, body and spirit, which will help children to become lifelong learners.</li>
+                                 <li><i class="fa fa-check" aria-hidden="true"></i>To revolutionize early childhood education by creating dynamic learning environments that ignite curiosity, foster creativity, and build strong foundations for lifelong learning. We envision our students as future innovators, leaders, and compassionate global citizens who will shape tomorrow's world.</li>
                               </ul>
                            </div>
                            <h3>Mission</h3>
                            <div class="special-list">
                               <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>To nurture young minds in a culturally appropriate environment and provide opportunities that will help them realise their true potential. </li>
+                                 <li><i class="fa fa-check" aria-hidden="true"></i>To provide exceptional early childhood education through our innovative curriculum, nurturing environment, and expert educators. We are committed to:
+                                 - Fostering each child's unique potential
+                                 - Building strong character foundations
+                                 - Promoting cultural awareness and respect
+                                 - Creating joyful learning experiences
+                                 - Partnering with families for holistic development</li>
                               </ul>
                            </div>
                            <div class="custom-button">
@@ -520,15 +873,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                            <h3><span>Who</span> we are?</h3>
                            <div class="special-list">
                               <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>Little Angel <sup>&#174;</sup> was established in the year 2008.</li>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>One of the leading preschool chain in India. </li>
+                                 <li><i class="fa fa-check" aria-hidden="true"></i>Established in 2008, Little Angel® has evolved into India's premier early childhood education provider, setting new standards in preschool education.</li>
+                                 <li><i class="fa fa-check" aria-hidden="true"></i>We are a community of passionate educators, child development experts, and learning specialists dedicated to creating transformative early learning experiences.</li>
                               </ul>
                            </div>
                            <h3><span>What</span> we do?</h3>
                            <div class="special-list">
                               <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>We lay emphasis on building the right foundation for the child.</li>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>Qualified and trained teachers, child-friendly infrastructure and playful learning environment ensure a high-quality experience for children. </li>
+                                 <li><i class="fa fa-check" aria-hidden="true"></i>We create enriching learning environments where every child's natural curiosity is nurtured into a lifelong love for learning. Our approach combines cutting-edge educational research with time-tested teaching methods.</li>
+                                 <li><i class="fa fa-check" aria-hidden="true"></i>Our centers feature state-of-the-art facilities, expertly trained educators, and a scientifically designed curriculum that promotes holistic development. We maintain a perfect balance of academic excellence and emotional nurturing.</li>
                               </ul>
                            </div>
                            <div class="custom-button">
@@ -543,13 +896,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                            <h3>Vision</h3>
                            <div class="special-list">
                               <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>To enable, energise and enhance childhood by fostering growth of mind, body and spirit, which will help children to become lifelong learners.</li>
+                                 <li><i class="fa fa-check" aria-hidden="true"></i>To revolutionize early childhood education by creating dynamic learning environments that ignite curiosity, foster creativity, and build strong foundations for lifelong learning. We envision our students as future innovators, leaders, and compassionate global citizens who will shape tomorrow's world.</li>
                               </ul>
                            </div>
                            <h3>Mission</h3>
                            <div class="special-list">
                               <ul>
-                                 <li><i class="fa fa-check" aria-hidden="true"></i>To nurture young minds in a culturally appropriate environment and provide opportunities that will help them realise their true potential. </li>
+                                 <li><i class="fa fa-check" aria-hidden="true"></i>To provide exceptional early childhood education through our innovative curriculum, nurturing environment, and expert educators. We are committed to:
+                                 - Fostering each child's unique potential
+                                 - Building strong character foundations
+                                 - Promoting cultural awareness and respect
+                                 - Creating joyful learning experiences
+                                 - Partnering with families for holistic development</li>
                               </ul>
                            </div>
                            <div class="custom-button">
@@ -582,9 +940,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                <div class="single-slider">
                   <div class="slider-text">
                      <h1>Our Curriculum</h1>
-                     <p>We are delighted to present Curriculum 2.0, designed to nurture every child’s growth through a well-rounded, developmentally appropriate learning approach. <br>
-                        At the heart of our curriculum is the 7-Petal Approach, which continues to enrich each child through meaningful, play-based activities every day. Building upon this foundation, our commitment remains unwavering—to nurture children as they bloom, enriching each of the seven petals to help them spread their unique fragrance. <br>
-                        Our award-winning curriculum is meticulously researched, and scientifically designed to foster holistic child development. Through play-based activities and collaborative group work, we provide children with a strong academic foundation using a multi-sensory, integrated approach to education.</p>
+                     <p>Welcome to our innovative Curriculum 2.0, meticulously crafted to nurture every child's unique potential through a holistic, developmentally appropriate learning journey. Our curriculum is built on three foundational pillars:
+
+                     1. The 7-Petal Approach: Our signature methodology that cultivates seven essential developmental domains - Cognitive, Physical, Language, Social, Emotional, Creative, and Cultural awareness. Each 'petal' represents a vital aspect of your child's growth, carefully nurtured through engaging daily activities.
+
+                     2. Research-Based Learning: Our curriculum integrates the latest findings in early childhood education, neuroscience, and developmental psychology. We understand that the early years are crucial for brain development, and our activities are designed to maximize this critical period.
+
+                     3. Play-Based Discovery: Through carefully structured play experiences, children develop critical thinking skills, problem-solving abilities, and a natural love for learning. Our approach combines spontaneous exploration with guided discovery, ensuring both enjoyment and educational value.
+
+                     What sets our curriculum apart is its perfect balance of structure and flexibility, allowing each child to progress at their own pace while ensuring comprehensive development across all learning areas.</p>
                      <div class="custom-button">
                         <a href="curriculum.html" class="custom-btn">learn more</a>
                      </div>
@@ -896,7 +1260,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                <div class="single-slider">
                   <div class="slider-text">
                      <h3>Admissions open</h3>
-                     <p>Preschool admission is a crucial stage in every parent’s life. We all want to select the best preschool for our kid’s primitive educational years and build a strong foundation for child’s future. Little Angel <sup>&#174;</sup> preschool has laid a strong foundation for 200,000+ children till date with 750 preschool centers across 150 cities in the country. With scientifically developed preschool curriculum, excellent infrastructure and caring teachers, Little Angel <sup>&#174;</sup> preschool is the best preschool in India to lay first steps into the educational journey of your kid. Preschool admission process at Little Angel <sup>&#174;</sup> is very simple. Fill up the preschool admission form and schedule an appointment with our admission counsellor today. </p>
+                     <p>Preschool admission is a crucial stage in every parent's life. We all want to select the best preschool for our kid's primitive educational years and build a strong foundation for child's future. Little Angel <sup>&#174;</sup> preschool has laid a strong foundation for 200,000+ children till date with 750 preschool centers across 150 cities in the country. With scientifically developed preschool curriculum, excellent infrastructure and caring teachers, Little Angel <sup>&#174;</sup> preschool is the best preschool in India to lay first steps into the educational journey of your kid. Preschool admission process at Little Angel <sup>&#174;</sup> is very simple. Fill up the preschool admission form and schedule an appointment with our admission counsellor today. </p>
                      <div class="custom-button">
                         <a href="admission.html" class="custom-btn-white">Enquire Now</a>
                      </div>
@@ -923,8 +1287,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                <div class="single-slider">
                   <div class="slider-text">
                      <h3>Start Your Own Preschool</h3>
-                     <p>Since its inception, Little Angel <sup>&#174;</sup> has been recognized as one of the leading preschool chain in India with over 750 preschools across 150 cities having served more than 2,00,000 families till date. With its scientifically developed, award-winning Seven Petal curriculum and end to end support facilities, Little Angel <sup>&#174;</sup> presents a profitable franchise opportunity that offers ultra high returns on investment and attractive franchise pricing.</p>
-                     <p>Interested to explore and start your own preschool? Fill out your details in the form below and we will get in touch with you shortly.</p>
+                     <p>Join Little Angel®'s legacy of excellence in early childhood education. With over 15 years of proven success, we've grown from a single center to 750+ thriving preschools across 150 cities, touching the lives of more than 200,000 families.</p>
+                     
+                     <p>Why Partner with Little Angel®:</p>
+                     <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 15px;">
+                        <li>Industry-Leading Curriculum: Our award-winning Seven Petal curriculum, backed by extensive research and continuous innovation</li>
+                        <li>Comprehensive Support: Complete operational guidance, from center setup to staff training</li>
+                        <li>Strong ROI: Attractive franchise model with proven financial returns and multiple revenue streams</li>
+                        <li>Brand Excellence: Benefit from our established reputation and strong market presence</li>
+                        <li>Training & Development: Ongoing professional development programs for your staff</li>
+                        <li>Marketing Support: Dedicated marketing assistance and proven enrollment strategies</li>
+                     </ul>
+
+                     <p>Our franchise partners receive:</p>
+                     <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 15px;">
+                        <li>Exclusive territory rights</li>
+                        <li>Detailed operations manual</li>
+                        <li>Staff recruitment assistance</li>
+                        <li>Regular curriculum updates</li>
+                        <li>Quality control systems</li>
+                        <li>Technology integration support</li>
+                     </ul>
+
+                     <p>Take the first step towards owning a successful preschool business. Join our network of passionate educators making a difference in early childhood education.</p>
+                     
                      <div class="custom-button">
                         <a href="https://franchise.littlemillennium.com/" target="_blank" class="custom-btn">learn more</a>
                      </div>
@@ -1054,137 +1440,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
          </div>
       </div>
    </section>
-
-   <div class="logo-section">
-      <div class="container-fluid">
-         <div class="single-slider">
-            <div class="slider-text text-center">
-               <h3>Awards &amp; Recognitions</h3>
-            </div>
-         </div>
-         <div class="logo-slider owl-carousel owl-theme">
-            <div class="single-logo">
-               <img class="lazyphoto" src="assets/img/logo/award_2019_1.webp" width="160" height="140" alt="Logo" loading="lazy">
-            </div>
-            <div class="single-logo">
-               <img class="lazyphoto" src="assets/img/logo/award_2019_2.webp" width="160" height="140" alt="Logo" loading="lazy">
-            </div>
-            <div class="single-logo">
-               <img class="lazyphoto" src="assets/img/logo/award_2018_1.webp" width="160" height="140" alt="Logo" loading="lazy">
-            </div>
-            <div class="single-logo">
-               <img class="lazyphoto" src="assets/img/logo/award_2018_2.webp" width="160" height="140" alt="Logo" loading="lazy">
-            </div>
-            <div class="single-logo">
-               <img class="lazyphoto" src="assets/img/logo/award_2018_3.webp" width="160" height="140" alt="Logo" loading="lazy">
-            </div>
-            <div class="single-logo">
-               <img class="lazyphoto" src="assets/img/logo/award_2018_4.webp" width="160" height="140" alt="Logo" loading="lazy">
-            </div>
-            <div class="single-logo">
-               <img class="lazyphoto" src="assets/img/logo/award_2018_5.webp" width="160" height="140" alt="Logo" loading="lazy">
-            </div>
-            <div class="single-logo">
-               <img class="lazyphoto" src="assets/img/logo/award_2018_6.webp" width="160" height="140" alt="Logo" loading="lazy">
-            </div>
-            <div class="single-logo">
-               <img class="lazyphoto" src="assets/img/logo/award_2018_7.webp" width="160" height="140" alt="Logo" loading="lazy">
-            </div>
-            <div class="single-logo">
-               <img class="lazyphoto" src="assets/img/logo/award_2018_8.webp" width="160" height="140" alt="Logo" loading="lazy">
-            </div>
-            <div class="single-logo">
-               <img class="lazyphoto" src="assets/img/logo/award_2017_1.webp" width="160" height="140" alt="Logo" loading="lazy">
-            </div>
-            <div class="single-logo">
-               <img class="lazyphoto" src="assets/img/logo/award_2017_2.webp" width="160" height="140" alt="Logo" loading="lazy">
-            </div>
-         </div>
-      </div>
-   </div>
-
-   <div class="logo-section">
-      <div class="container">
-         <div class="single-slider">
-            <div class="slider-text text-center">
-               <h3>Our Blog</h3>
-            </div>
-         </div>
-         <div class="blog-slider-main" id="blog-container">
-           <!-- <div class="blog-item">
-               <div class="post-content-wrapper">
-                  <div class="entry-image-wrapper">
-                     <a href="https://www.littlemillennium.com/blog/how-does-technology-impact-early-childhood-development/">
-                        <img src="https://www.littlemillennium.com/blog/wp-content/uploads/2023/07/SEO-3-1920x1000.jpg" alt="Article" class="img-fluid">
-                     </a>
-                  </div>
-                  <div class="entry-data-wrapper">
-                     <div class="entry-header-wrapper">
-                        <div class="entry-header">
-                           <h2 class="entry-title"><a href="https://www.littlemillennium.com/blog/how-does-technology-impact-early-childhood-development/" >How Does Technology Impact Early Childhood Development?</a></h2>					
-                        </div>
-                     </div>
-                     <div class="entry-summary">
-                        <p>Technology’s presence in our daily lives can’t be overlooked, especially its influence on our children’s development. With this complex issue, one needs to take into…</p>
-                     </div>                     
-                     <div class="more-link-wrapper">
-                        <a href="https://www.littlemillennium.com/blog/how-does-technology-impact-early-childhood-development/" class="custom-btn-white">Read More</a>
-                     </div>			
-                  </div>
-               </div>
-            </div>
-            <div class="blog-item">
-               <div class="post-content-wrapper">
-                  <div class="entry-image-wrapper">
-                     <a href="https://www.littlemillennium.com/blog/6-reasons-why-preschool-is-good-for-your-child/">
-                        <img src="https://www.littlemillennium.com/blog/wp-content/uploads/2023/06/6-reasons-why-preschol-is-godd-for-your-child-1-1920x960.jpg" alt="Article" class="img-fluid">
-                     </a>
-                  </div>
-                  <div class="entry-data-wrapper">
-                     <div class="entry-header-wrapper">
-                        <div class="entry-header">
-                           <h2 class="entry-title"><a href="https://www.littlemillennium.com/blog/6-reasons-why-preschool-is-good-for-your-child/" >6 Reasons Why Preschool Is Good for Your Child</a></h2>					
-                        </div>
-                     </div>
-                     <div class="entry-summary">
-                        <p>We all know that every child is unique. Despite the uniqueness, the curiosity to know and the ever- present readiness to explore the world is the same. Children at their early developmental ages need the right guidance and place to move further in the correct direction.</p>
-                     </div>
-                     
-                     <div class="more-link-wrapper">
-                        <a href="https://www.littlemillennium.com/blog/6-reasons-why-preschool-is-good-for-your-child/" class="custom-btn-white">Read More</a>
-                     </div>			
-                  </div>
-               </div>
-            </div>
-            <div class="blog-item">
-               <div class="post-content-wrapper">
-                  <div class="entry-image-wrapper">
-                     <a href="https://www.littlemillennium.com/blog/the-effects-montessori-on-childrens-growth/">
-                        <img src="https://www.littlemillennium.com/blog/wp-content/uploads/2023/05/Untitled-design-19.jpg" alt="Article" class="img-fluid">
-                     </a>
-                  </div>
-                  <div class="entry-data-wrapper">
-                     <div class="entry-header-wrapper">
-                        <div class="entry-header">
-                           <h2 class="entry-title"><a href="https://www.littlemillennium.com/blog/the-effects-montessori-on-childrens-growth/" >The Effects Montessori on Children’s Growth</a></h2>					
-                        </div>
-                     </div>
-                     <div class="entry-summary">
-                        <p>In today’s ever-evolving educational landscape, the method of education you choose for your children’s growth is more crucial than ever. As there are numerous methods available, parents and educators seek innovative approaches to nurture well-rounded individuals. Of all the choices, the Montessori Method stands out for its emphasis on independent learning, holistic development, and fostering a love for lifelong learning.</p>
-                     </div>
-                     
-                     <div class="more-link-wrapper">
-                        <a href="https://www.littlemillennium.com/blog/the-effects-montessori-on-childrens-growth/" class="custom-btn-white">Read More</a>
-                     </div>			
-                  </div>
-               </div>
-            </div> -->
-         </div>
-         <div class="view-more-btn">
-            <a href="blog/index.html" class="custom-btn">Discover More</a>
-         </div>
-      </div>
-   </div>
 
    <div class="footer-top">
       <div class="container">
